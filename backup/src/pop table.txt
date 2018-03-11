@@ -1,0 +1,104 @@
+http://1bestcsharp.blogspot.pe/2017/03/javascript-populate-html-table-from-array.html
+https://plot.ly/javascript/getting-started/
+https://stackoverflow.com/questions/42066941/plotting-points-on-canvas-using-an-array-javascript
+
+https://www.codementor.io/davidbrumbaugh/migrating-from-javascript-to-php-du1088tr4
+
+How to populate Table:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Add Rows To HTML Table From Array </title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <table id="table" border="1">
+            
+            <!-- The Row Number 0 -->
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+            <!-- End Row Number 0 -->
+            <!--
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            -->
+        </table>
+        
+        <script>
+            
+            var array = [["A1","B1","C1"],
+                         ["A2","B2","C2"],
+                         ["A3","B3","C3"],
+                         ["A4","B4","C4"],
+                         ["A5","B5","C5"],
+                         ["A1","B1","C1"],
+                         ["A2","B2","C2"],
+                         ["A3","B3","C3"],
+                         ["A4","B4","C4"],
+                         ["A5","B5","C5"]],
+                table = document.getElementById("table");
+        
+        /* Method 1
+        // rows
+        for(var i = 1; i < table.rows.length; i++)
+        {
+          // cells
+          for(var j = 0; j < table.rows[i].cells.length; j++)
+          {
+              table.rows[i].cells[j].innerHTML = array[i - 1][j];
+          }
+        }
+            */
+           
+           // Method 2
+           
+           for(var i = 0; i < array.length; i++)
+           {
+               // create a new row
+               var newRow = table.insertRow(table.length);
+               for(var j = 0; j < array[i].length; j++)
+               {
+                   // create a new cell
+                   var cell = newRow.insertCell(j);
+                   
+                   // add value to the cell
+                   cell.innerHTML = array[i][j];
+               }
+           }
+        </script>
+        
+    </body>
+</html>

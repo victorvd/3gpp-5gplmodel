@@ -1,0 +1,76 @@
+
+#logotipo img {
+    position: absolute;
+    top:0px;
+    right:0px;
+    width:auto; /* you can use % */
+    height:60px; }
+
+#banner {
+    background-color: #1A9781;
+    width: auto;
+    height: 2px; }
+
+#nav-bar {
+    background-color: #1A9781;
+    border-color: #E7E7E7;
+}
+
+footer {
+    margin-top: 10px;
+    background: #fffafa;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px; }
+
+fieldset {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px; }
+
+.encabezado-interno {
+    text-align: center;    
+    color:#2D3E50;
+}
+
+.encabezado-interno h1{
+    margin-bottom:10px;
+}
+
+/* Tables */
+table .tr_blanc {
+    background-color: #FFFFFF; }
+table .tr_bleu1 {
+    background-color: #F5F5F5; }
+table th, table td {
+    padding: 0px 8px 0px 6px; }
+table th {
+    vertical-align: middle; }
+table .td_left {
+    text-align: left; }
+table .td_auto {
+    text-align: center; }
+
+.table_freq {
+    font: 1em "Trebuchet MS", Helvetica, sans-serif;
+    text-align: left;
+    box-shadow: 2px 2px 4px #888888; }
+.table_freq th, .table_freq td {
+    border: 1px solid #D1DDEB;
+    /*C7CFDC*/ }
+.table_freq thead tr {
+    background-color: #E3EBF8;
+    /*ecffff*/
+    color: Black; }
+.table_freq thead th, .table_freq thead td {
+    border: 1px solid #C1DAD7; }
+.table_freq .tr_freq_head {
+    background-color: #ecffff;
+    color: Black; }
+.table_freq tbody tr:hover {
+    background-color: #feebce; }
