@@ -16,6 +16,22 @@
     border-color: #E7E7E7;
 }
 
+#language {
+    text-align: right;
+}
+
+#language a:link, 
+#language a:visited  {    
+    font: 0.9em "Trebuchet MS", Helvetica, sans-serif;
+    color: #4c4c4c;
+    background-color: #DBE4ED;
+}
+#language a:hover {
+    font: 0.9em "Trebuchet MS", Helvetica, sans-serif;
+    color: #000DEB;
+    background-color: #FFFFFF;
+}
+
 footer {
     margin-top: 10px;
     background: #fffafa;

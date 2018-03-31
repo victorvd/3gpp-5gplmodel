@@ -9,10 +9,9 @@ $(document).ready(function () {
     if ($("#txt_sce").find('option:selected').val() != ""){
         multiples();
     };
-
     $("#frm_parm").submit(function () {
         var scenario = escenario();
-        var pos_nam = "php/calc_" + scenario + ".php";
+        var pos_nam = "../php/calc_" + scenario + ".php";        
 
         var datosForm = $(this).serialize();
         $.post(pos_nam, datosForm, mostrResul);
@@ -24,10 +23,6 @@ function mostrResul(table) {
 
     var callres = $('#call_result')[0]; // Usando [0] se obtiene un objeto DOM
     var errDiv = $('#div_err')[0];
-
-    //Variables para los títulos del gráfico
-    var trc_nam = escenario() + ' pathloss';
-    var lay_tle = 'Pérdidas en el trayecto ' + escenario() + ' ';
 
     //Manejar el error
     if (table[0][0] !== "[") {
@@ -48,17 +43,17 @@ function mostrResul(table) {
         //Cambiar la cabecera de la tabla de resultados para frec. o dist.        
         switch ($("#txt_tab")[0].selectedIndex) {
             case 0:
-                $("th#fr_ds").text("Frecuencia fc [MHz]");
+                $("th#fr_ds").text("Frequency fc [MHz]");
                 //Cambiar título de eje X para la gráfica
-                var xaxe = 'Frecuencia de portadora [MHz]';
+                var xaxe = 'Carrier frequency [MHz]';
                 break;
             case 1:
-                $("th#fr_ds").text("Frecuencia fc [MHz]");
-                var xaxe = 'Frecuencia de portadora [MHz]';
+                $("th#fr_ds").text("Frequency fc [MHz]");
+                var xaxe = 'Carrier frequency [MHz]';
                 break;
             case 2:
-                $("th#fr_ds").text("Distancia 3D [m]");
-                var xaxe = 'Distancia 3D [m]';
+                $("th#fr_ds").text("3D distance [m]");
+                var xaxe = '3D distance [m]';
                 break;
         }
         ;
@@ -95,15 +90,15 @@ function mostrResul(table) {
     var trace = {
         x: col3x,
         y: col3y,
-        name: trc_nam,
+        name: ' pathloss' + escenario(),
         line: {
             color: '#1b7e4c',
             width: 1}
     };
 
     var layout = {
-        title: lay_tle
-                + $("#txt_los option:selected").text(), //Se obtiene "LOS" en lugar de "opt_los", p. ej.
+        title: escenario() + ' '
+            + $("#txt_los option:selected").text() + ' Path loss ',
         titlefont: {
             size: 24,
             color: '#b8092a'
@@ -129,9 +124,8 @@ function mostrResul(table) {
     Plotly.newPlot(grafico, [trace], layout);
 }
 ;
-
-function changeLanguage(language) {
-    var url = window.location.origin + language + location.pathname;
+function changeLanguage() {
+    var url = window.location.origin + location.pathname.substring(3);
     window.location.replace(url);
 }
 ;
@@ -168,6 +162,7 @@ function multiples() {
     }
     ;
 }
+
 function escenario() {
 
     scenario = $("#txt_sce").find('option:selected').val();
