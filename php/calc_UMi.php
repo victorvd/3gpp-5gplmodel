@@ -7,7 +7,7 @@ $far = [];
 $dar = [];
 $sdSF = [];
 
-$hBS = checkvar($_POST["txt_hBS"], 10, 10);
+$hBS = checkvar($_POST["txt_hBS"], 1, 50);
 $hUT = checkvar($_POST["txt_hUT"], 1.5, 22.5);
 $fc = checkvar($_POST["txt_freq"], 0.5, 100);
 $d2D = checkvar($_POST["txt_d2D"], 10, 5000);
