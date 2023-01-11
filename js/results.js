@@ -48,13 +48,13 @@ function mostrResul(table) {
         //Cambiar la cabecera de la tabla de resultados para frec. o dist.        
         switch ($("#txt_tab")[0].selectedIndex) {
             case 0:
-                $("th#fr_ds").text("Frecuencia fc [MHz]");
+                $("th#fr_ds").text("Frecuencia fc [GHz]");
                 //Cambiar título de eje X para la gráfica
-                var xaxe = 'Frecuencia de portadora [MHz]';
+                var xaxe = 'Frecuencia de portadora [GHz]';
                 break;
             case 1:
-                $("th#fr_ds").text("Frecuencia fc [MHz]");
-                var xaxe = 'Frecuencia de portadora [MHz]';
+                $("th#fr_ds").text("Frecuencia fc [GHz]");
+                var xaxe = 'Frecuencia de portadora [GHz]';
                 break;
             case 2:
                 $("th#fr_ds").text("Distancia 3D [m]");
@@ -64,9 +64,9 @@ function mostrResul(table) {
         ;
     }
     ;
-    $("#txt_plos").val(PLoss[0][1].toFixed(1));
-    $("#txt_shwf").val(PLoss[0][2].toFixed(1));
-    $("#txt_plsf").val((PLoss[0][1] + PLoss[0][2]).toFixed(1));
+    $("#txt_plos").val(PLoss[0][1].toFixed(6));
+    $("#txt_shwf").val(PLoss[0][2].toFixed(6));
+    $("#txt_plsf").val((PLoss[0][1] + PLoss[0][2]).toFixed(6));  //Mostrar resultados con 6 decimales
 
     //Tabular
     while (tabla.rows[2]) {
@@ -76,8 +76,9 @@ function mostrResul(table) {
     for (var i = 0; i <= ite; i++) {
         var fila = tabla.insertRow(tabla.rows.length);
         fila.insertCell(0).innerHTML = i + 1;
-        fila.insertCell(1).innerHTML = (+(PLoss[i][0])).toFixed(2);
-        fila.insertCell(2).innerHTML = parseFloat(PLoss[i][1]).toFixed(2);
+        fila.insertCell(1).innerHTML = (+(PLoss[i][0])).toFixed(6); //Mostrar resultados con 6 decimales
+        fila.insertCell(2).innerHTML = parseFloat(PLoss[i][1]).toFixed(6);
+        //fila.insertCell(3).innerHTML = parseFloat(PLoss[i][2]).toFixed(6);    //Shadow fading
     }
 
     tabla.style.textAlign = "center";
