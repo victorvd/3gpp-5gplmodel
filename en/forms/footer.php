@@ -21,7 +21,7 @@
         <thead>
             <tr>
                 <th rowspan="3">Value</th>
-                <th id="fr_ds" rowspan="3">Frequency [MHz]</th>
+                <th id="fr_ds" rowspan="3">Frequency [GHz]</th>
                 <th rowspan="3">Pathloss [dB]</th>
             </tr>
         </thead>

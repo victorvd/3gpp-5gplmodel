@@ -13,7 +13,7 @@
             type="number"
             name="txt_freq" 
             id="txt_freq"
-            min="0.5" max="100" step="0.001"
+            min="0.5" max="100" step="0.000001"
             class="col-sm-2 form-control"
             title="Frequency must be in the range of 0.5 - 100 GHz"
             required/>
@@ -25,7 +25,7 @@
             type="number"
             name="txt_fcmx"
             id="txt_fcmx"        
-            min="0.5" max="100" step="0.001"
+            min="0.5" max="100" step="0.000001"
             class="col-sm-2 form-control"
             title="Maximum frequency must be in the range of 0.5 - 30 GHz"/>
         <div class="input-group-addon">GHz</div>
@@ -56,13 +56,14 @@
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">BS height [h<sub>BS</sub> = 25]</label><!--Altura de la antena para la BS-->
         <input 
-            type="text"
+            type="number"
             value="25"
             name="txt_hBS"
             id="txt_hBS"
+            min="1" max="50" step="0.001"
             class="col-sm-2 form-control"
-            title="Antenna height is fixed at 25 m"
-            readonly/>
+            title="The TR fixes the antenna height at 25 m"
+            required/>
         <div class="input-group-addon">m</div>  
     </div>
     <div class="form-group row">
