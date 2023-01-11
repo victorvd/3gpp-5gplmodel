@@ -14,7 +14,7 @@
             type="number"
             name="txt_freq" 
             id="txt_freq"
-            min="0.5" max="30" step="0.001"
+            min="0.5" max="30" step="0.000001"
             class="col-sm-2 form-control"
             title="La frecuencia debe estar entre 0.5 GHz y 30 GHz"
             required/>
@@ -26,7 +26,7 @@
             type="number"
             name="txt_fcmx"
             id="txt_fcmx"        
-            min="0.5" max="30" step="0.001"
+            min="0.5" max="30" step="0.000001"
             class="col-sm-2 form-control"
             title="La frecuencia máxima debe estar entre 0.5 GHz y 30 GHz"/>
         <div class="input-group-addon">GHz</div>

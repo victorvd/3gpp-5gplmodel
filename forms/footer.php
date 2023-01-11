@@ -21,8 +21,9 @@
         <thead>
             <tr>
                 <th rowspan="3">Valor</th>
-                <th id="fr_ds" rowspan="3">Frecuencia [MHz]</th>
+                <th id="fr_ds" rowspan="3">Frecuencia [GHz]</th>
                 <th rowspan="3">Pathloss [dB]</th>
+		<!--<th rowspan="3">Shadow Fade [dB]</th>-->
             </tr>
         </thead>
         <tbody>
