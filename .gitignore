@@ -1,0 +1,22 @@
+#
+# ignore all files and then exclude each directory and file individually
+/*
+!*.yml
+!CONTRIBUTORS.txt
+!Docker/
+!Dockerfile
+!helm
+!Helm
+!Kubernetes
+!Nginx/
+!php-fpm.d/
+!README.md
+!sonar-project.properties
+!sponsor/
+!src/
+# Exclude some patterns
+docker-compose.override.yml
+/**/.*
+!.dockerignore
+!.gitignore
+!.gitleaksignore
