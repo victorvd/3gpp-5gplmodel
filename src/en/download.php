@@ -15,7 +15,7 @@
                 <div id="logo-pos"><img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/posgrado.png"/></div>
                 <div id="logotipo"><img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/logo.png"/></div>
                 <div id="language">
-                    <a class="" href="<?php echo $GLOBALS['APP_ROOT'] ?>">Español</a>
+                    <a class="" href="<?php echo $GLOBALS['APP_ROOT'] ?>/">Español</a>
                     <?php include $GLOBALS['SCRIPT_ROOT']."/sponsor/index.php"; ?>
                 </div>
                 <div class="encabezado-interno">
@@ -28,7 +28,7 @@
             <nav id="nav-bar" class="navbar navbar-toggleable-md navbar-light bg-faded">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $_SERVER['PHP_SELF'];?>">Home</a>
+                        <a class="nav-link" href="<?php echo $_SERVER['APP_ROOT'];?>/en/index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/download.php">Download</a>
