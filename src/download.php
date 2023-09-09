@@ -1,3 +1,4 @@
+<?php include_once './config.php' ?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -14,11 +15,12 @@
 
         <div class="container">
             <header>
-                <div id="logo-pos"><img src="images/posgrado.png"/></div>
-                <div id="logotipo"><img src="images/logo.png"/></div>
+                <div id="logo-pos"><img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/posgrado.png"/></div>
+                <div id="logotipo"><img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/logo.png"/></div>
 
                 <div id="language">
-                    <a class="" href="#" onclick="changeLanguage('/en');">English</a>
+                    <a class="" href="<?php echo $GLOBALS['APP_ROOT'] ?>/en">English</a>
+                    <?php include $GLOBALS['SCRIPT_ROOT']."/sponsor/index.php"; ?>
                 </div>
 
                 <div class="encabezado-interno">
@@ -31,10 +33,10 @@
             <nav id="nav-bar" class="navbar navbar-toggleable-md navbar-light bg-faded">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Inicio</a>
+                        <a class="nav-link" href="<?php echo $GLOBALS['APP_ROOT'] ?>/index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="download.php">Descargas</a>
+                        <a class="nav-link" href="<?php echo $GLOBALS['APP_ROOT'] ?>/download.php">Descargas</a>
                     </li>
                 </ul>
             </nav>
@@ -45,19 +47,19 @@
                 <br>
                 <div>
                     <ul style="color:#292B2C">
-                        <li><a href="/downloads/RMa.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/downloads/RMa.m" download>
                                 Rural Macrocell path loss</a></li>
-                        <li><a href="/downloads/UMa.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/downloads/UMa.m" download>
                                 Urban Macrocell path loss</a></li>
-                        <li><a href="/downloads/UMi.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/downloads/UMi.m" download>
                                 Urban Microcell path loss</a></li>
-                        <li><a href="/downloads/InH.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/downloads/InH.m" download>
                                 Indoor Hotspot path loss</a></li>
-                        <li><a href="/downloads/Prlos.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/downloads/Prlos.m" download>
                                 LoS Probability</a></li>
-                        <li><a href="/downloads/3GPP_PL.zip" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/downloads/3GPP_PL.zip" download>
                                 3GPP path loss</a></li>
-                        <li><a href="/downloads/NYU_PL.zip" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/downloads/NYU_PL.zip" download>
                                 NYU path loss</a></li>
                     </ul>
                 </div>
@@ -66,8 +68,8 @@
 
                 <br>
                 <div>
-                    <img src="../images/img_3NY.png" width="auto" height="300"/>
-                    <img src="../images/img_hist.png" width="auto" height="300"/>
+                    <img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/img_3NY.png" width="auto" height="300"/>
+                    <img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/img_hist.png" width="auto" height="300"/>
                 </div>
                 <br>
 

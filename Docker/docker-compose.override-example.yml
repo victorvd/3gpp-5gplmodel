@@ -1,0 +1,61 @@
+version: "3.8"
+services:
+  3gpp-5gplmodel:
+    image: 3gpp-5gplmodel:latest
+    hostname: 3gpp-5gplmodel
+    container_name: 3gpp-5gplmodel
+    logging:
+      options:
+        max-size: "2G"
+        max-file: "3"
+    platform: linux/amd64
+    read_only: true
+    user: '10000'
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    tmpfs:
+      - /run/lock
+      - /tmp
+      - /var/run/nginx
+    # if you want to change sponsor name
+    # volumes:
+    #   - /home/3gpp-5gplmodel/.sponsor:/usr/share/nginx/html/3gpp-5gplmodel/sponsor
+    networks:
+      - 3gpp-5gplmodel
+    labels:
+      - "traefik.enable=true" # Explicitly tell Traefik to expose this container
+      - "traefik.http.routers.3gpp-5gplmodel.entrypoints=http"
+      - "traefik.http.routers.3gpp-5gplmodel.rule=Host(`3gpp-5gplmodel.example.co`)"  # The domain the service will respond to
+      - "traefik.http.routers.3gpp-5gplmodel.entrypoints=web" # Allow request only from the predefined entry point named "web"
+      - "traefik.http.middlewares.3gpp-5gplmodel-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.3gpp-5gplmodel.middlewares=3gpp-5gplmodel-https-redirect"
+      - "traefik.http.routers.3gpp-5gplmodel-secure.entrypoints=https"
+      - "traefik.http.routers.3gpp-5gplmodel-secure.rule=Host(`3gpp-5gplmodel.example.co`)"
+      - "traefik.http.routers.3gpp-5gplmodel-secure.tls=true"
+      - "traefik.http.routers.3gpp-5gplmodel-secure.tls.certresolver=http"
+      - "traefik.http.routers.3gpp-5gplmodel-secure.service=3gpp-5gplmodel"
+      - "traefik.http.services.3gpp-5gplmodel.loadbalancer.server.port=80"
+      - "traefik.docker.network=3gpp-5gplmodel"
+
+  traefik:
+    image: "traefik:v2.9"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+    ports:
+      - "80:80"
+      - "443:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - 3gpp-5gplmodel
+networks:
+  3gpp-5gplmodel:
+    name: 3gpp-5gplmodel
+    external: false
