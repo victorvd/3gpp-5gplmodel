@@ -1,0 +1,4 @@
+# None source directories must be cast out
+.git
+.vs
+sonar-project.properties

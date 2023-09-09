@@ -1,26 +1,23 @@
+<?php include_once '../config.php' ?>
 <!doctype html>
 <html lang="en">
     <head>
         <title>Download - Path loss</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../css/formas.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $GLOBALS['APP_ROOT'] ?>/css/formas.css" rel="stylesheet" type="text/css">
         <meta name="keywords" content="5G,frequency,band,spectrum">
         <meta name="description" content="5G frequency band pathloss calculator">
-
     </head>
-
     <body>
-
         <div class="container">
             <header>
-                <div id="logo-pos"><img src="../images/posgrado.png"/></div>
-                <div id="logotipo"><img src="../images/logo.png"/></div>
-
+                <div id="logo-pos"><img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/posgrado.png"/></div>
+                <div id="logotipo"><img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/logo.png"/></div>
                 <div id="language">
-                    <a class="" href="#" onclick="changeLanguage();">Español</a>
+                    <a class="" href="<?php echo $GLOBALS['APP_ROOT'] ?>">Español</a>
+                    <?php include $GLOBALS['SCRIPT_ROOT']."/sponsor/index.php"; ?>
                 </div>
-
                 <div class="encabezado-interno">
                     <h1>Master's degree in Telecommunications Engineering</h1>
                     <div class="linea-sombreada-sup"></div>
@@ -31,10 +28,10 @@
             <nav id="nav-bar" class="navbar navbar-toggleable-md navbar-light bg-faded">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="<?php echo $_SERVER['PHP_SELF'];?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="download.php">Download</a>
+                        <a class="nav-link" href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/download.php">Download</a>
                     </li>
                 </ul>
             </nav>
@@ -45,29 +42,28 @@
                 <br>
                 <div>
                     <ul style="color:#292B2C">
-                        <li><a href="/downloads/RMa.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/downloads/RMa.m" download>
                                 Rural Macrocell path loss</a></li>
-                        <li><a href="/downloads/UMa.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/downloads/UMa.m" download>
                                 Urban Macrocell path loss</a></li>
-                        <li><a href="/downloads/UMi.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/downloads/UMi.m" download>
                                 Urban Microcell path loss</a></li>
-                        <li><a href="/downloads/InH.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/downloads/InH.m" download>
                                 Indoor Hotspot path loss</a></li>
-                        <li><a href="/downloads/Prlos.m" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/downloads/Prlos.m" download>
                                 LoS Probability</a></li>
-                        <li><a href="/downloads/3GPP_PL.zip" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/downloads/3GPP_PL.zip" download>
                                 3GPP path loss</a></li>
-                        <li><a href="/downloads/NYU_PL.zip" download>
+                        <li><a href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/downloads/NYU_PL.zip" download>
                                 NYU path loss</a></li>
                     </ul>
                 </div>
                 <br>
                 <h4><a id="hdr_3GPP"></a>Scripts can be executed with MATLAB®</h4>
-                
                 <br>
                 <div>
-                    <img src="../images/img_3NY.png" width="auto" height="300"/>
-                    <img src="../images/img_hist.png" width="auto" height="300"/>
+                    <img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/img_3NY.png" width="auto" height="300"/>
+                    <img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/img_hist.png" width="auto" height="300"/>
                 </div>
                 <br>
 
