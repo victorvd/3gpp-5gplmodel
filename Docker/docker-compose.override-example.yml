@@ -1,9 +1,9 @@
 version: "3.8"
 services:
-  3gpp-5gplmodel:
+  5gpathloss:
     image: 3gpp-5gplmodel:latest
-    hostname: 3gpp-5gplmodel
-    container_name: 3gpp-5gplmodel
+    hostname: 5gpathloss
+    container_name: 5gpathloss
     logging:
       options:
         max-size: "2G"
@@ -13,49 +13,58 @@ services:
     user: '10000'
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "8000:8080"
     tmpfs:
       - /run/lock
       - /tmp
       - /var/run/nginx
-    # if you want to change sponsor name
-    # volumes:
-    #   - /home/3gpp-5gplmodel/.sponsor:/usr/share/nginx/html/3gpp-5gplmodel/sponsor
+    volumes:
+      - /root/sponsor:/usr/share/nginx/html/3gpp-5gplmodel/sponsor
+      - type: bind
+        source: /root/sponsor/config.php
+        target: /usr/share/nginx/html/3gpp-5gplmodel/config.php
+        read_only: true
     networks:
-      - 3gpp-5gplmodel
+      - 5gpathloss
     labels:
       - "traefik.enable=true" # Explicitly tell Traefik to expose this container
-      - "traefik.http.routers.3gpp-5gplmodel.entrypoints=http"
-      - "traefik.http.routers.3gpp-5gplmodel.rule=Host(`3gpp-5gplmodel.example.co`)"  # The domain the service will respond to
-      - "traefik.http.routers.3gpp-5gplmodel.entrypoints=web" # Allow request only from the predefined entry point named "web"
-      - "traefik.http.middlewares.3gpp-5gplmodel-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.3gpp-5gplmodel.middlewares=3gpp-5gplmodel-https-redirect"
-      - "traefik.http.routers.3gpp-5gplmodel-secure.entrypoints=https"
-      - "traefik.http.routers.3gpp-5gplmodel-secure.rule=Host(`3gpp-5gplmodel.example.co`)"
-      - "traefik.http.routers.3gpp-5gplmodel-secure.tls=true"
-      - "traefik.http.routers.3gpp-5gplmodel-secure.tls.certresolver=http"
-      - "traefik.http.routers.3gpp-5gplmodel-secure.service=3gpp-5gplmodel"
-      - "traefik.http.services.3gpp-5gplmodel.loadbalancer.server.port=80"
-      - "traefik.docker.network=3gpp-5gplmodel"
+      - "traefik.http.routers.5gpathloss.entrypoints=http"
+      - "traefik.http.routers.5gpathloss.rule=Host(`FIXME: www.my-website.com`)"  # The domain the service will respond to
+      - "traefik.http.routers.5gpathloss.entrypoints=web" # Allow request only from the predefined entry point named "web"
+      - "traefik.http.middlewares.5gpathloss-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.5gpathloss.middlewares=5gpathloss-https-redirect"
+      - "traefik.http.routers.5gpathloss-secure.entrypoints=websecure"
+      - "traefik.http.routers.5gpathloss-secure.rule=Host(`FIXME: www.my-website.com`)"
+      - "traefik.http.routers.5gpathloss-secure.tls=true"
+      - "traefik.http.routers.5gpathloss-secure.tls.certresolver=le"
+      - "traefik.http.routers.5gpathloss-secure.service=5gpathloss"
+      - "traefik.http.services.5gpathloss.loadbalancer.server.port=8080"
+      - "traefik.docker.network=5gpathloss"
 
   traefik:
     image: "traefik:v2.9"
     container_name: "traefik"
     command:
-      #- "--log.level=DEBUG"
+      - "--log.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.le.acme.httpchallenge=true"
+      - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.le.acme.email=FIXME:"
+      - "--certificatesresolvers.le.acme.storage=/data/acme.json"
+      - "--certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
     ports:
       - "80:80"
-      - "443:8080"
+      - "443:443"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/root/traefik/data:/data"
     networks:
-      - 3gpp-5gplmodel
+      - 5gpathloss
 networks:
-  3gpp-5gplmodel:
-    name: 3gpp-5gplmodel
+  5gpathloss:
+    name: 5gpathloss
     external: false
