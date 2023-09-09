@@ -28,7 +28,7 @@
             <nav id="nav-bar" class="navbar navbar-toggleable-md navbar-light bg-faded">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $_SERVER['APP_ROOT'];?>/en/index.php">Home</a>
+                        <a class="nav-link" href="<?php echo $GLOBALS['APP_ROOT'];?>/en/index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/download.php">Download</a>
