@@ -19,7 +19,7 @@
                 <div id="logotipo"><img src="<?php echo $GLOBALS['APP_ROOT'] ?>/images/logo.png"/></div>
 
                 <div id="language">
-                    <a class="" href="<?php echo $GLOBALS['APP_ROOT'] ?>/en">English</a>
+                    <a class="" href="<?php echo $GLOBALS['APP_ROOT'] ?>/en/">English</a>
                     <?php include $GLOBALS['SCRIPT_ROOT']."/sponsor/index.php"; ?>
                 </div>
 
